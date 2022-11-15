@@ -25,7 +25,7 @@
       <h3 class="text-center text-secondary">Registro de Huesped</h3>
       
       <?php
-
+      // Remover includes
       include "modelo/conexion.php";
 
       include "controlador/registro_huesped.php";
