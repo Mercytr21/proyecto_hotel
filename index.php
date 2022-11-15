@@ -23,9 +23,11 @@
 
     <form class="col-4 p-3 m-auto" method="POST">
       <h3 class="text-center text-secondary">Registro de Huesped</h3>
+      
       <?php
- include "modelo/conexion.php";
- 
+
+      include "modelo/conexion.php";
+
       include "controlador/registro_huesped.php";
       include "controlador/checkout_huesped.php";
       include "controlador/eliminar_registro.php";
@@ -50,6 +52,10 @@
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Numero de habitacion</label>
         <input type="text" class="form-control" name="numHabitaciones">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Tipo habitacion</label>
+        <input type="text" class="form-control" name="tipoHabitacion">
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Fecha ingreso</label>
@@ -78,6 +84,7 @@
             <th scope="col">TELEFONO</th>
             <th scope="col">EDAD</th>
             <th scope="col">NUM HABITACION</th>
+            <th scope="col">TIPO HABITACION</th>
             <th scope="col">FECHA INGRESO</th>
             <th scope="col">NUM NOCHES</th>
             <th scope="col">FECHA SALIDA</th>
@@ -112,6 +119,9 @@
               <?= $datos->num_habitacion ?>
             </td>
             <td>
+              <?= $datos->tipo_hab ?>
+            </td>
+            <td>
               <?= $datos->fecha_ingreso ?>
             </td>
             <td>
@@ -127,7 +137,7 @@
               <a href="checkout.php?id=<?= $datos->ID ?>" class="btn btn-small btn-warning"><i
                   class="fa-solid fa-pen-to-square"></i></a>
             </td>
-            <td><a href="eliminar_registro.php?id=<?= $datos->ID ?>" class="btn btn-small btn-danger"><i
+            <td><a href="/controlador/eliminar_registro.php?id=<?= $datos->ID ?>" class="btn btn-small btn-danger"><i
                   class="fa-solid fa-trash"></i></a></td>
           </tr>
 

@@ -1,4 +1,6 @@
 <?php
+  include "../modelo/conexion.php";
+
 
 if (!empty($_POST["btnCheckout"])) {
     if (!empty($_POST["idHuesped"])
@@ -7,6 +9,7 @@ if (!empty($_POST["btnCheckout"])) {
         $idHuesped = $_POST["idHuesped"];
         $fechaSalida = $_POST["fechaSalida"];
         
+
        
         //INGRESAR AL SP DE CHECKIN HUESPED
         $sql= $conexion->query("CALL checkoutHuesped ('$idHuesped','$fechaSalida')");

@@ -6,6 +6,7 @@ if (!empty($_POST["btnregistrar"])) {
         and !empty($_POST["telefono"])
         and !empty($_POST["edad"])
         and !empty($_POST["numHabitaciones"])
+        and !empty($_POST["tipoHabitacion"])
         and !empty($_POST["fechaIngreso"])
         and !empty($_POST["numNoches"])
         and !empty($_POST["estatus"])) {
@@ -15,12 +16,13 @@ if (!empty($_POST["btnregistrar"])) {
         $telefono = $_POST["telefono"];
         $edad = $_POST["edad"];
         $numHabitaciones = $_POST["numHabitaciones"];
+        $tipoHabitacion =$_POST["tipoHabitacion"];
         $fechaIngreso = $_POST["fechaIngreso"];
         $numNoches = $_POST["numNoches"];
         $estatus = $_POST["estatus"];
        
         //INGRESAR AL SP DE CHECKIN HUESPED
-        $sql= $conexion->query("CALL checkinHuesped ('$nombre','$direccion','$telefono','$edad','$numHabitaciones','$fechaIngreso','$numNoches','','$estatus')");
+        $sql= $conexion->query("CALL checkinHuesped ('$nombre','$direccion','$telefono','$edad','$numHabitaciones','$tipoHabitacion','$fechaIngreso','$numNoches','','$estatus')");
             if($sql==1){
                 echo '<div class="alert alert-success">PERSONA REGISTRADA</div>';
             }else{

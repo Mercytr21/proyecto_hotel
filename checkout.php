@@ -1,5 +1,5 @@
 <?php
-include "modelo/conexion.php";
+      include "modelo/conexion.php";
     $id=$_GET["id"];
     $sql=$conexion->query("select huespedes.ID from huespedes where ID=$id");
 
@@ -19,15 +19,16 @@ include "modelo/conexion.php";
 
 <body>
 
-    <form class="col-4 p-3 m-auto" method="POST">
+    <form action="./controlador/checkout_huesped.php" class="col-4 p-3 m-auto" method="POST">
         <h5 class="text-center alert alert-secondary">Checkout Huesped</h5>
         <?php
-      include "modelo/conexion.php";
+     
       include "controlador/checkout_huesped.php";
       ?>
 
         <?php
-      while($datos= $sql->fetch_object()){?>
+        $datos=$sql->fetch_object();
+      if($datos){?>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">ID del Huesped</label>
