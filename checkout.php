@@ -1,5 +1,6 @@
 <?php
       include "modelo/conexion.php";
+      include "controlador/checkout_huesped.php";
     $id=$_GET["id"];
     $sql=$conexion->query("select huespedes.ID from huespedes where ID=$id");
 
@@ -21,18 +22,19 @@
 
     <form action="./controlador/checkout_huesped.php" class="col-4 p-3 m-auto" method="POST">
         <h5 class="text-center alert alert-secondary">Checkout Huesped</h5>
-        <?php
-     
-      include "controlador/checkout_huesped.php";
-      ?>
+
+
+
+      
 
         <?php
+        
         $datos=$sql->fetch_object();
       if($datos){?>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">ID del Huesped</label>
-            <input type="text" class="form-control" name="idHuesped" value="<?=$datos->ID?>">
+            <input type="text" class="form-control" name="idHuesped" value="<?=$_GET["id"] ?> ">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Fecha de salida</label>
@@ -43,7 +45,7 @@
       ?>
 
 
-        <button type="submit" class="btn btn-primary" name="btnCheckout" value="ok">Guardar</button>
+        <button  type="submit" class="btn btn-primary" name="btnCheckout" value="ok">Guardar</button>
     </form>
 </body>
 

@@ -12,10 +12,16 @@
   <link rel="stylesheet" href="diseño.css">
   <!--importar el css-->
 
+</head>
 
 <body>
   <h1 class="text-center p-3"> HOTEL PARADISE | CONTROL HUESPEDES</h1>
 
+  <!--AGREGAMOS FUNCION eliminar EN BOTON -->
+  <script>function eliminar() {
+      var respuesta = confirm("¿Desea eliminar el registro?")
+      return respuesta;
+    }</script>
 
 
   <!-- FORM -->
@@ -23,7 +29,7 @@
 
     <form class="col-4 p-3 m-auto" method="POST">
       <h3 class="text-center text-secondary">Registro de Huesped</h3>
-      
+
       <?php
       // Remover includes
       include "modelo/conexion.php";
@@ -89,14 +95,19 @@
             <th scope="col">NUM NOCHES</th>
             <th scope="col">FECHA SALIDA</th>
             <th scope="col">ESTATUS</th>
+            <th scope="col">CHECK OUT</th>
+
             <th scope="col"></th>
+
             <th scope="col"></th>
+
+
           </tr>
         </thead>
         <tbody>
 
           <?php
-          include "modelo/conexion.php";
+
           $sql = $conexion->query("select * from huespedes");
           while ($datos = $sql->fetch_object()) { ?>
           <tr>
@@ -133,12 +144,19 @@
             <td>
               <?= $datos->estatus ?>
             </td>
+            <!--BOTON CHECKOUT-->
             <td>
-              <a href="checkout.php?id=<?= $datos->ID ?>" class="btn btn-small btn-warning"><i
-                  class="fa-solid fa-pen-to-square"></i></a>
+              <a href="checkout.php?id=<?= $datos->ID ?>" class="btn btn-small btn-secondary"><i
+                  class="fa-solid fa-right-from-bracket"></i></a>
             </td>
-            <td><a href="/controlador/eliminar_registro.php?id=<?= $datos->ID ?>" class="btn btn-small btn-danger"><i
+            <!--BOTON ELIMINAR-->
+            <td><a onclick="return eliminar()" href="index.php?id=<?= $datos->ID ?>" class="btn btn-small btn-danger"><i
                   class="fa-solid fa-trash"></i></a></td>
+
+            <td>
+              <!--BOTON EDITAR-->
+              <a href="editar.php?id=<?=$datos->ID?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
           </tr>
 
 

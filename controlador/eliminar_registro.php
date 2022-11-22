@@ -3,10 +3,11 @@
 
  if(!empty($_GET["id"])){
     $id=$_GET["id"];
-    $sql=$conexion->query("delete from huespedes where ID=$id");
-
+    $sql=$conexion->query("delete from huespedes where ID=$id" );
+    
     if($sql==1){
-        echo '<div >PERSONA ELIMINDAD</div>';
+        
+        echo '<div class="alert alert-success">PERSONA ELIMINADA</div>';
     }else{
         echo '<div >ERROR</div>';
     }
