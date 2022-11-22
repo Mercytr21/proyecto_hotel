@@ -17,7 +17,7 @@
 <body>
   <h1 class="text-center p-3"> HOTEL PARADISE | CONTROL HUESPEDES</h1>
 
-  <!--AGREGAMOS FUNCION eliminar EN BOTON -->
+  <!--AGREGAMOS FUNCION eliminar EN BOTONes -->
   <script>function eliminar() {
       var respuesta = confirm("¿Desea eliminar el registro?")
       return respuesta;
