@@ -15,7 +15,7 @@ if (!empty($_POST["btnCheckout"])) {
         $sql= $conexion->query("CALL checkoutHuesped ('$idHuesped','$fechaSalida')");
             if($sql==1){
                 
-                header("location:../index.php");
+                header("location:../tablaHuespedes.php");
             }else{
                 echo '<div class="alert alert-danger">ERROR AL REGISTRAR</div>';
             }

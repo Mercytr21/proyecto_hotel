@@ -1,0 +1,36 @@
+
+.table{
+    background-color: rgba(134, 122, 122, 0.199);
+    text-align: center;
+}
+
+
+
+h1{
+    color: rgb(27, 27, 27);
+    
+  
+
+}
+
+body{
+    background-image: url('https://i.pinimg.com/564x/2f/6f/31/2f6f316ca9439e81f4e4c90d5885f718.jpg');
+    
+        object-fit: cover;
+        opacity: 1;
+        background-repeat:
+        repeat;
+
+}
+
+
+
+
+footer{
+    position:absolute;
+    bottom: 10px;
+   left: 43%;
+    color: black
+}
+
+

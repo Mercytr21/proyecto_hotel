@@ -1,0 +1,25 @@
+body{
+    background-image: url('https://www.thejoshuatreehouse.com/wp-content/uploads/2021/09/about_saracombs_cholla-1009x1024.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    background-position: left;
+    
+}
+
+h3{
+    text-align: left;
+    color: grey;
+    
+    
+}
+
+
+
+
+footer{
+    position:absolute;
+    bottom: 10px;
+    text-align: right;
+}
+

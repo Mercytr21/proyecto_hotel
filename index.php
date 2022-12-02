@@ -1,179 +1,103 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-4">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel</title>
+  <title>Proyecto Mercy</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7a02d54f8c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="diseño.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="boostrap.js"></script>
   <!--importar el css-->
-
 </head>
 
 <body>
-  <h1 class="text-center p-3"> HOTEL PARADISE | CONTROL HUESPEDES</h1>
-
-  <!--AGREGAMOS FUNCION eliminar EN BOTONes -->
-  <script>function eliminar() {
-      var respuesta = confirm("¿Desea eliminar el registro?")
-      return respuesta;
-    }</script>
 
 
-  <!-- FORM -->
-  <div class="container-fluid-row">
-
-    <form class="col-4 p-3 m-auto" method="POST">
-      <h3 class="text-center text-secondary">Registro de Huesped</h3>
-
-      <?php
-      // Remover includes
-      include "modelo/conexion.php";
-
-      include "controlador/registro_huesped.php";
-      include "controlador/checkout_huesped.php";
-      include "controlador/eliminar_registro.php";
-      ?>
-
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Nombre de la persona</label>
-        <input type="text" class="form-control" name="nombre">
+  <!--NAVBAR -->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a id="tituloNavbar" class="navbar-brand" href="#">The Tree Hotel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.php">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.php">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tablaHuespedes.php">Huespedes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="habitaciones.php">Habitaciones</a>
+          </li>
+         
+         
+          
+        </ul>
       </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Direccion</label>
-        <input type="text" class="form-control" name="direccion">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Telefono</label>
-        <input type="text" class="form-control" name="telefono">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Edad</label>
-        <input type="text" class="form-control" name="edad">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Numero de habitacion</label>
-        <input type="text" class="form-control" name="numHabitaciones">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Tipo habitacion</label>
-        <input type="text" class="form-control" name="tipoHabitacion">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Fecha ingreso</label>
-        <input type="date" class="form-control" name="fechaIngreso">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Numero de noches</label>
-        <input type="text" class="form-control" name="numNoches">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Estatus</label>
-        <input type="text" class="form-control" name="estatus">
-      </div>
-      <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Registrar</button>
-    </form>
-
-
-    <!-- Tabla -->
-    <div class="col-10 p-4 m-auto">
-      <table class="table">
-        <thead class="bg-info">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">NOMBRE</th>
-            <th scope="col">DIRECCION</th>
-            <th scope="col">TELEFONO</th>
-            <th scope="col">EDAD</th>
-            <th scope="col">NUM HABITACION</th>
-            <th scope="col">TIPO HABITACION</th>
-            <th scope="col">FECHA INGRESO</th>
-            <th scope="col">NUM NOCHES</th>
-            <th scope="col">FECHA SALIDA</th>
-            <th scope="col">ESTATUS</th>
-            <th scope="col">CHECK OUT</th>
-
-            <th scope="col"></th>
-
-            <th scope="col"></th>
-
-
-          </tr>
-        </thead>
-        <tbody>
-
-          <?php
-
-          $sql = $conexion->query("select * from huespedes");
-          while ($datos = $sql->fetch_object()) { ?>
-          <tr>
-            <td>
-              <?= $datos->ID ?>
-            </td>
-            <td>
-              <?= $datos->nombre ?>
-            </td>
-            <td>
-              <?= $datos->direccion ?>
-            </td>
-            <td>
-              <?= $datos->telefono ?>
-            </td>
-            <td>
-              <?= $datos->edad ?>
-            </td>
-            <td>
-              <?= $datos->num_habitacion ?>
-            </td>
-            <td>
-              <?= $datos->tipo_hab ?>
-            </td>
-            <td>
-              <?= $datos->fecha_ingreso ?>
-            </td>
-            <td>
-              <?= $datos->num_noches ?>
-            </td>
-            <td>
-              <?= $datos->fecha_salida ?>
-            </td>
-            <td>
-              <?= $datos->estatus ?>
-            </td>
-            <!--BOTON CHECKOUT-->
-            <td>
-              <a href="checkout.php?id=<?= $datos->ID ?>" class="btn btn-small btn-secondary"><i
-                  class="fa-solid fa-right-from-bracket"></i></a>
-            </td>
-            <!--BOTON ELIMINAR-->
-            <td><a onclick="return eliminar()" href="index.php?id=<?= $datos->ID ?>" class="btn btn-small btn-danger"><i
-                  class="fa-solid fa-trash"></i></a></td>
-
-            <td>
-              <!--BOTON EDITAR-->
-              <a href="editar.php?id=<?=$datos->ID?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-            </td>
-          </tr>
-
-
-
-          <?php }
-          ?>
-
-
-
-
-        </tbody>
-      </table>
     </div>
+  </nav>
+
+
+
+
+  <!--CAROUSEL -->
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+      <div id="divImagen1" class="carousel-item active">
+        <img id="imagen1" src="https://cdn.pixabay.com/photo/2019/06/26/18/50/couple-4300983_960_720.jpg"
+          class="d-block w-100" alt="...">
+        <div id="texto1" class="carousel-caption d-none d-md-block">
+          <h1>CONECTA CON LA NATURALEZA</h1>
+        </div>
+      </div>
+      <div id="divImagen2" class="carousel-item">
+        <img id="imagen" src="https://cdn.pixabay.com/photo/2017/03/27/15/02/couple-2179256_960_720.jpg"
+          class="d-block w-100" alt="...">
+          <div id="texto2" class="carousel-caption d-none d-md-block">
+          <h1>THE BEST PLACE TO RELAX</h1>
+        </div>
+      </div>
+      <div id="divImagen3" class="carousel-item">
+        <img id="imagen3" src="https://cdn.pixabay.com/photo/2017/03/27/14/14/coffee-2179009_960_720.jpg"
+          class="d-block w-100" alt="...">
+          <div id="texto1" class="carousel-caption d-none d-md-block">
+          <h1>COMODIDAD DEL HOGAR</h1>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+
+
+
+
 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<footer>
+  <h6>©2022 The tree hotel</h6>
+</footer>
 
 </html>

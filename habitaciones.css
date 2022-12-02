@@ -1,0 +1,34 @@
+
+.table{
+    background-color: rgba(244, 242, 242, 0.674);
+    text-align: left;
+ 
+}
+
+
+
+h1{
+    color: rgb(0, 0, 0);
+    text-align: right;
+    margin: 10px;
+    padding: 5px;
+
+}
+
+body{
+    background-image: url('https://inspired-beauty.com/javascript1/uploads/2022/07/Bedroom-Decor-Ideas-For-Women-white-furniture.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    background-attachment: fixed;
+   
+}
+
+footer{
+    position:absolute;
+    bottom: 10px;
+   right: 5%;
+    color: black
+}
+
+

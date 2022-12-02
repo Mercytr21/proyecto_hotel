@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHECKOUT HUESPED</title>
-
+    <link rel="stylesheet" href="./checkout.css?v=<?pho echo time();?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -46,6 +46,7 @@
 
 
         <button  type="submit" class="btn btn-primary" name="btnCheckout" value="ok">Guardar</button>
+        <a type="submit" href="tablaHuespedes.php" class="btn btn-secondary" name="btnCheckout" value="ok">Cancelar</a>
     </form>
 </body>
 
